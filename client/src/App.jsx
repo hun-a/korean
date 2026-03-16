@@ -130,7 +130,7 @@ const App = () => {
     <main className="page">
       <header className="hero">
         <div>
-          <p className="eyebrow">한글 15분 MVP</p>
+          <p className="eyebrow">한글 15분 학습</p>
           <h1>{lesson?.title || '한글 학습'}</h1>
           <p>5분 읽기 + 5분 단어 읽기 + 5분 따라쓰기, 오늘도 완료해봐요.</p>
           {!hasAudioForDay && <p className="error">이 회차 오디오는 아직 준비 중이에요.</p>}
