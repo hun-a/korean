@@ -1,0 +1,383 @@
+:root {
+  --sky: #78c5ff;
+  --mint: #8ee8bf;
+  --sun: #ffd166;
+  --orange: #ff8d3a;
+  --ink: #13304b;
+  --panel: #ffffffcc;
+  --error: #d24545;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Nunito', 'Apple SD Gothic Neo', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #fff8cf 0%, #fff8cf55 20%, transparent 40%),
+    radial-gradient(circle at 85% 20%, #d8ffd8 0%, #d8ffd855 22%, transparent 45%),
+    linear-gradient(165deg, #b3e4ff 0%, #e2f5ff 45%, #f6fbff 100%);
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 24px;
+  background: linear-gradient(130deg, #ffffffee, #f6fbffb3);
+  border: 2px solid #ffffffcc;
+  box-shadow: 0 12px 30px #4a82a81f;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: 'Gaegu', cursive;
+  font-size: 1.3rem;
+  color: #255f96;
+}
+
+.hero h1 {
+  margin: 4px 0;
+  font-size: clamp(1.5rem, 2.5vw, 2.3rem);
+  font-family: 'Gaegu', cursive;
+}
+
+.hero p {
+  margin: 0;
+}
+
+.day-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.day-picker select {
+  border: 2px solid #abd8ff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: #fff;
+  font-size: 1rem;
+}
+
+.stage-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.stage-tab {
+  border: 0;
+  border-radius: 16px;
+  padding: 12px;
+  background: #eaf4ff;
+  color: #1f588d;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.stage-tab.active {
+  background: linear-gradient(135deg, var(--sun), #ffb347);
+  color: #553300;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.panel {
+  border-radius: 20px;
+  background: var(--panel);
+  border: 2px solid #fff;
+  padding: 16px;
+  box-shadow: 0 12px 24px #3f71931a;
+}
+
+.learning-panel h2,
+.writing-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.activity-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.activity-list li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #f7fbff;
+}
+
+.activity-list button {
+  border: 0;
+  border-radius: 10px;
+  background: #d8ecff;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.cards {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  border: 2px solid #ddedff;
+  border-radius: 14px;
+  background: #fff;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card span {
+  display: block;
+  font-family: 'Gaegu', cursive;
+  font-size: 2rem;
+}
+
+.card small {
+  color: #45749f;
+}
+
+.canvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.target-chip {
+  background: #e6fff2;
+  color: #145639;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+
+.canvas-stack {
+  position: relative;
+  width: min(100%, 360px);
+  margin: 8px auto 0;
+  aspect-ratio: 1/1;
+}
+
+.canvas-stack canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  border: 2px solid #d4e8ff;
+}
+
+.draw-canvas {
+  touch-action: none;
+}
+
+.canvas-actions {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.canvas-actions button {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px;
+  background: #1f7dd0;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.writing-feedback {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 10px;
+  background: #f5f9ff;
+}
+
+.writing-feedback.success {
+  background: #e8fff1;
+  color: #0f6c3b;
+}
+
+.writing-feedback.retry {
+  background: #fff4df;
+  color: #875200;
+}
+
+.stage-focus-panel h2 {
+  margin: 0;
+}
+
+.stage-focus-panel p {
+  margin: 8px 0 0;
+  color: #2e618f;
+}
+
+.next-stage-button {
+  margin-top: 16px;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 12px;
+  font-weight: 800;
+  color: #09416d;
+  background: linear-gradient(135deg, #b8e2ff, #c7f8dd);
+  cursor: pointer;
+}
+
+.error {
+  color: var(--error);
+  font-weight: 700;
+}
+
+.celebrate {
+  position: fixed;
+  inset: 16px;
+  border-radius: 18px;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  background: #0f6ac622;
+  backdrop-filter: blur(2px);
+  animation: popup 220ms ease-out;
+}
+
+.celebrate p {
+  margin: 0;
+  background: #fff;
+  color: #0f6ac6;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-weight: 800;
+}
+
+.confetti {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  animation: burst 1.1s ease-out forwards;
+}
+
+.confetti-1 {
+  top: 35%;
+  left: 45%;
+  background: var(--sun);
+}
+
+.confetti-2 {
+  top: 35%;
+  left: 55%;
+  background: var(--orange);
+  animation-delay: 50ms;
+}
+
+.confetti-3 {
+  top: 45%;
+  left: 50%;
+  background: var(--mint);
+  animation-delay: 90ms;
+}
+
+.confetti-4 {
+  top: 40%;
+  left: 50%;
+  background: var(--sky);
+  animation-delay: 140ms;
+}
+
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc((var(--x, 1) * 110px) - 45px), calc((var(--y, 1) * -140px) + 30px))
+      scale(1.2)
+      rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.confetti-1 {
+  --x: -0.8;
+  --y: 0.9;
+}
+
+.confetti-2 {
+  --x: 0.8;
+  --y: 0.85;
+}
+
+.confetti-3 {
+  --x: -0.35;
+  --y: 1.1;
+}
+
+.confetti-4 {
+  --x: 0.35;
+  --y: 1.1;
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stage-tabs {
+    grid-template-columns: 1fr;
+  }
+}

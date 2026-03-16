@@ -1,0 +1,155 @@
+{
+  "total": 30,
+  "lessons": [
+    {
+      "day": "001",
+      "title": "001일차 - 모음 `ㅏ`, `ㅓ`",
+      "path": "lessons/001.json"
+    },
+    {
+      "day": "002",
+      "title": "002일차 - 모음 `ㅗ`, `ㅜ`",
+      "path": "lessons/002.json"
+    },
+    {
+      "day": "003",
+      "title": "003일차 - 모음 `ㅡ`, `ㅣ`",
+      "path": "lessons/003.json"
+    },
+    {
+      "day": "004",
+      "title": "004일차 - 확장 모음 `ㅑ`, `ㅕ`, `ㅛ`, `ㅠ`",
+      "path": "lessons/004.json"
+    },
+    {
+      "day": "005",
+      "title": "005일차 - 복합모음 `ㅐ`, `ㅔ`",
+      "path": "lessons/005.json"
+    },
+    {
+      "day": "006",
+      "title": "006일차 - 복합모음 `ㅘ`, `ㅝ`",
+      "path": "lessons/006.json"
+    },
+    {
+      "day": "007",
+      "title": "007일차 - 복합모음 `ㅚ`, `ㅟ` + 모음 종합",
+      "path": "lessons/007.json"
+    },
+    {
+      "day": "008",
+      "title": "008일차 - 자음 `ㄱ`, `ㄴ`, `ㄷ`, `ㄹ`",
+      "path": "lessons/008.json"
+    },
+    {
+      "day": "009",
+      "title": "009일차 - 자음 `ㅁ`, `ㅂ`, `ㅅ`, `ㅇ`",
+      "path": "lessons/009.json"
+    },
+    {
+      "day": "010",
+      "title": "010일차 - 자음 `ㅈ`, `ㅊ`, `ㅋ`, `ㅌ`, `ㅍ`, `ㅎ`",
+      "path": "lessons/010.json"
+    },
+    {
+      "day": "011",
+      "title": "011일차 - 모아쓰기 1 (`가~하` 기본 음절)",
+      "path": "lessons/011.json"
+    },
+    {
+      "day": "012",
+      "title": "012일차 - 모아쓰기 2 (`고/구/기` 패턴)",
+      "path": "lessons/012.json"
+    },
+    {
+      "day": "013",
+      "title": "013일차 - 받침 없는 단어 읽기 1",
+      "path": "lessons/013.json"
+    },
+    {
+      "day": "014",
+      "title": "014일차 - 받침 없는 단어 읽기 2",
+      "path": "lessons/014.json"
+    },
+    {
+      "day": "015",
+      "title": "015일차 - 1~14일차 중간 점검",
+      "path": "lessons/015.json"
+    },
+    {
+      "day": "016",
+      "title": "016일차 - 받침 기초 1 (`ㄱ`, `ㄴ`, `ㄷ`, `ㄹ`)",
+      "path": "lessons/016.json"
+    },
+    {
+      "day": "017",
+      "title": "017일차 - 받침 기초 2 (`ㅁ`, `ㅂ`, `ㅇ`)",
+      "path": "lessons/017.json"
+    },
+    {
+      "day": "018",
+      "title": "018일차 - 받침 단어 확장 읽기",
+      "path": "lessons/018.json"
+    },
+    {
+      "day": "019",
+      "title": "019일차 - 받침 포함 짧은 문장 읽기",
+      "path": "lessons/019.json"
+    },
+    {
+      "day": "020",
+      "title": "020일차 - 쌍자음 `ㄲ`, `ㄸ`, `ㅃ`, `ㅆ`, `ㅉ`",
+      "path": "lessons/020.json"
+    },
+    {
+      "day": "021",
+      "title": "021일차 - 쌍자음 단어 읽기",
+      "path": "lessons/021.json"
+    },
+    {
+      "day": "022",
+      "title": "022일차 - 복합모음 + 받침 통합",
+      "path": "lessons/022.json"
+    },
+    {
+      "day": "023",
+      "title": "023일차 - 받아쓰기 1 (단어 중심)",
+      "path": "lessons/023.json"
+    },
+    {
+      "day": "024",
+      "title": "024일차 - 질문과 대답 문장",
+      "path": "lessons/024.json"
+    },
+    {
+      "day": "025",
+      "title": "025일차 - 그림 보고 문장 만들기",
+      "path": "lessons/025.json"
+    },
+    {
+      "day": "026",
+      "title": "026일차 - 짧은 이야기 읽기 1",
+      "path": "lessons/026.json"
+    },
+    {
+      "day": "027",
+      "title": "027일차 - 짧은 이야기 읽기 2",
+      "path": "lessons/027.json"
+    },
+    {
+      "day": "028",
+      "title": "028일차 - 나를 소개하는 문장",
+      "path": "lessons/028.json"
+    },
+    {
+      "day": "029",
+      "title": "029일차 - 나만의 한글책 만들기",
+      "path": "lessons/029.json"
+    },
+    {
+      "day": "030",
+      "title": "030일차 - 30일 종합 발표와 마무리",
+      "path": "lessons/030.json"
+    }
+  ]
+}

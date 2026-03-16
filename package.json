@@ -1,0 +1,18 @@
+{
+  "name": "happy-learning-korean",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "preview": "npm run preview --prefix client",
+    "generate:lessons": "node scripts/generateLessonData.mjs",
+    "generate:audio": "node scripts/generateLectureAudio.mjs",
+    "prepare:static": "npm run generate:lessons && npm run generate:audio"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "openai": "^4.104.0"
+  }
+}
