@@ -23,6 +23,7 @@ Personality Affect: Friendly and approachable with a hint of sophistication; spe
 const PROJECT_ROOT = process.cwd();
 const AUDIO_OUTPUT_DIR = path.resolve(PROJECT_ROOT, 'client', 'public', 'audio');
 const MANIFEST_PATH = path.resolve(AUDIO_OUTPUT_DIR, 'manifest.json');
+const EXTRA_TEXTS = ['다시 써보세요'];
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -101,6 +102,10 @@ const loadAllTexts = async (days) => {
     for (const text of lessonTexts) {
       allTexts.add(text);
     }
+  }
+
+  for (const text of EXTRA_TEXTS) {
+    allTexts.add(text);
   }
 
   return [...allTexts];

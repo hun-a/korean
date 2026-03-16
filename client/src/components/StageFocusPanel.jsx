@@ -12,11 +12,24 @@ const stageDescriptions = {
 const StageFocusPanel = ({ activeStage, lesson, onPlayText, onGoNext }) => {
   const stageInfo = stageDescriptions[activeStage] ?? stageDescriptions[0];
   const items = activeStage === 0 ? lesson?.letters ?? [] : lesson?.words ?? [];
+  const stageTitle = lesson?.stages?.[activeStage]?.title ?? stageInfo.title;
+  const activities = lesson?.stages?.[activeStage]?.activities ?? [];
 
   return (
     <article className="panel stage-focus-panel">
-      <h2>{stageInfo.title}</h2>
+      <h2>{stageTitle}</h2>
       <p>{stageInfo.description}</p>
+
+      <ul className="activity-list">
+        {activities.map((activity) => (
+          <li key={activity}>
+            <button type="button" onClick={() => onPlayText(activity)}>
+              듣기
+            </button>
+            {activity}
+          </li>
+        ))}
+      </ul>
 
       <div className="cards">
         {items.map((item) => (

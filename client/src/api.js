@@ -1,4 +1,9 @@
-const buildStaticUrl = (relativePath) => new URL(relativePath, import.meta.env.BASE_URL).toString();
+const buildStaticUrl = (relativePath) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = relativePath.startsWith('/') ? relativePath.slice(1) : relativePath;
+  return `${normalizedBase}${normalizedPath}`;
+};
 
 const formatDay = (day) => String(Number.parseInt(String(day), 10)).padStart(3, '0');
 

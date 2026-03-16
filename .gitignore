@@ -4,3 +4,4 @@ server/node_modules/
 client/dist/
 .env
 .DS_Store
+.playwright-cli

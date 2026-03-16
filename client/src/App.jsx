@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { fetchLesson } from './api';
 import CelebrationOverlay from './components/CelebrationOverlay';
-import LessonPanel from './components/LessonPanel';
+import LessonCompletePanel from './components/LessonCompletePanel';
 import StageFocusPanel from './components/StageFocusPanel';
 import StageTabs from './components/StageTabs';
 import WritingPanel from './components/WritingPanel';
@@ -15,6 +15,7 @@ const App = () => {
   const [lesson, setLesson] = useState(null);
   const [activeStage, setActiveStage] = useState(0);
   const [traceIndex, setTraceIndex] = useState(0);
+  const [isLessonComplete, setIsLessonComplete] = useState(false);
   const [writingResult, setWritingResult] = useState('idle');
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
@@ -30,7 +31,7 @@ const App = () => {
     drawStroke,
     endStroke,
     clearCanvas
-  } = useDrawingCanvas(currentTraceTarget);
+  } = useDrawingCanvas(currentTraceTarget, selectedDay, activeStage === 2);
 
   const onAudioError = useCallback((message) => {
     setErrorMessage(message);
@@ -47,6 +48,7 @@ const App = () => {
         const payload = await fetchLesson(day);
         setLesson(payload);
         setTraceIndex(0);
+        setIsLessonComplete(false);
         setActiveStage(0);
         setWritingResult('idle');
         clearCanvas();
@@ -90,6 +92,7 @@ const App = () => {
     }
 
     setWritingResult('retry');
+    playText('다시 써보세요', { force: true });
   };
 
   const resetDrawing = () => {
@@ -97,8 +100,27 @@ const App = () => {
     setWritingResult('idle');
   };
 
+  const restartWritingLesson = () => {
+    setTraceIndex(0);
+    setIsLessonComplete(false);
+    resetDrawing();
+  };
+
   const nextTrace = () => {
-    setTraceIndex((previous) => (previous + 1) % traceTargets.length);
+    if (traceTargets.length === 0) {
+      setIsLessonComplete(true);
+      setCelebrate(true);
+      return;
+    }
+
+    const isLastTrace = traceIndex >= traceTargets.length - 1;
+    if (isLastTrace) {
+      setIsLessonComplete(true);
+      setCelebrate(true);
+      return;
+    }
+
+    setTraceIndex((previous) => previous + 1);
     resetDrawing();
   };
 
@@ -135,29 +157,28 @@ const App = () => {
 
       <StageTabs activeStage={activeStage} onChange={setActiveStage} />
 
-      <section className="content-grid">
-        <LessonPanel
-          isLoading={isLoading}
-          errorMessage={errorMessage}
-          lesson={lesson}
-          activeStage={activeStage}
-          onPlayText={playText}
-        />
-
+      <section className="content-grid single-panel">
         {activeStage === 2 ? (
-          <WritingPanel
-            target={currentTraceTarget}
-            writingResult={writingResult}
-            guideCanvasRef={guideCanvasRef}
-            drawCanvasRef={drawCanvasRef}
-            onStartStroke={startStroke}
-            onDrawStroke={drawStroke}
-            onEndStroke={endStroke}
-            onPlayText={playText}
-            onGrade={gradeDrawing}
-            onClear={resetDrawing}
-            onNext={nextTrace}
-          />
+          isLessonComplete ? (
+            <LessonCompletePanel
+              onRestart={restartWritingLesson}
+              onGoStageOne={() => setActiveStage(0)}
+            />
+          ) : (
+            <WritingPanel
+              target={currentTraceTarget}
+              writingResult={writingResult}
+              guideCanvasRef={guideCanvasRef}
+              drawCanvasRef={drawCanvasRef}
+              onStartStroke={startStroke}
+              onDrawStroke={drawStroke}
+              onEndStroke={endStroke}
+              onPlayText={playText}
+              onGrade={gradeDrawing}
+              onClear={resetDrawing}
+              onNext={nextTrace}
+            />
+          )
         ) : (
           <StageFocusPanel
             activeStage={activeStage}

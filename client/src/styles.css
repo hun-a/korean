@@ -101,6 +101,10 @@ body {
   gap: 16px;
 }
 
+.content-grid.single-panel {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .panel {
   border-radius: 20px;
   background: var(--panel);
@@ -197,7 +201,13 @@ body {
   border: 2px solid #d4e8ff;
 }
 
+.guide-canvas {
+  z-index: 1;
+}
+
 .draw-canvas {
+  z-index: 2;
+  background: transparent;
   touch-action: none;
 }
 
@@ -247,6 +257,10 @@ body {
   color: #2e618f;
 }
 
+.stage-focus-panel .activity-list {
+  margin-top: 12px;
+}
+
 .next-stage-button {
   margin-top: 16px;
   width: 100%;
@@ -256,6 +270,39 @@ body {
   font-weight: 800;
   color: #09416d;
   background: linear-gradient(135deg, #b8e2ff, #c7f8dd);
+  cursor: pointer;
+}
+
+.complete-panel {
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.complete-panel h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.complete-panel p {
+  margin: 10px 0 0;
+  font-size: 1.05rem;
+  color: #225682;
+}
+
+.complete-actions {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.complete-actions button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px;
+  background: linear-gradient(135deg, #1f7dd0, #2f95e8);
+  color: #fff;
+  font-weight: 800;
   cursor: pointer;
 }
 

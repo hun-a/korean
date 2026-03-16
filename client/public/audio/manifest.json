@@ -2,13 +2,13 @@
   "model": "gpt-4o-mini-tts",
   "voice": "coral",
   "instructions": "Accent/Affect: Warm, refined, and gently instructive, reminiscent of a friendly art instructor.\n\nTone: Calm, encouraging, and articulate, clearly describing each step with patience.\n\nPacing: Slow and deliberate, pausing often to allow the listener to follow instructions comfortably.\n\nEmotion: Cheerful, supportive, and pleasantly enthusiastic; convey genuine enjoyment and appreciation of art.\n\nPronunciation: Clearly articulate artistic terminology (e.g., \"brushstrokes,\" \"landscape,\" \"palette\") with gentle emphasis.\n\nPersonality Affect: Friendly and approachable with a hint of sophistication; speak confidently and reassuringly, guiding users through each painting step patiently and warmly.",
-  "generatedAt": "2026-03-16T15:11:01.895Z",
+  "generatedAt": "2026-03-16T15:35:10.238Z",
   "availableDays": [
     1,
     2,
     3
   ],
-  "total": 45,
+  "total": 46,
   "entries": {
     "`ㅏ`, `ㅓ`를 소리와 모양으로 구분한다.": "audio/c683e712.mp3",
     "`아`, `어`를 읽고 따라 쓴다.": "audio/6f234c7e.mp3",
@@ -54,6 +54,7 @@
     "`이마`, `으뜸`, `이`, `으`를 그림과 함께 읽기": "audio/b8c5b2d2.mp3",
     "헷갈리면 느린 발음 버튼으로 재청취": "audio/659834af.mp3",
     "`ㅡ`, `ㅣ`, `이`, `으`를 캔버스 따라 쓰기": "audio/77641f13.mp3",
-    "획이 선을 벗어나지 않으면 박수 애니메이션": "audio/4f2e48fe.mp3"
+    "획이 선을 벗어나지 않으면 박수 애니메이션": "audio/4f2e48fe.mp3",
+    "다시 써보세요": "audio/ce8edaa7.mp3"
   }
 }

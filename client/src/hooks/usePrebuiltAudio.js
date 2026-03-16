@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { fetchAudioManifest } from '../api';
 
-const buildStaticUrl = (relativePath) => new URL(relativePath, import.meta.env.BASE_URL).toString();
+const buildStaticUrl = (relativePath) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = relativePath.startsWith('/') ? relativePath.slice(1) : relativePath;
+  return `${normalizedBase}${normalizedPath}`;
+};
 
 export const usePrebuiltAudio = ({ onError }) => {
   const [audioEntries, setAudioEntries] = useState({});
@@ -23,8 +28,14 @@ export const usePrebuiltAudio = ({ onError }) => {
   }, [onError]);
 
   const playText = useCallback(
-    async (text) => {
-      if (!text || isSpeaking) {
+    async (text, options = {}) => {
+      const { force = false } = options;
+
+      if (!text) {
+        return;
+      }
+
+      if (!force && isSpeaking) {
         return;
       }
 

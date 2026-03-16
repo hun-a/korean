@@ -1,26 +1,30 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { CANVAS_SIZE, drawGuideText } from '../lib/traceCanvas';
 
-export const useDrawingCanvas = (targetText) => {
+export const useDrawingCanvas = (targetText, lessonDay, isCanvasVisible) => {
   const guideCanvasRef = useRef(null);
   const drawCanvasRef = useRef(null);
   const drawingRef = useRef(false);
 
   useEffect(() => {
+    if (!isCanvasVisible) {
+      return;
+    }
+
     const guideCanvas = guideCanvasRef.current;
     const drawCanvas = drawCanvasRef.current;
     if (!guideCanvas || !drawCanvas || !targetText) {
       return;
     }
 
-    drawGuideText(guideCanvas, targetText);
+    drawGuideText(guideCanvas, targetText, lessonDay);
     const context = drawCanvas.getContext('2d');
     context.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
     context.lineWidth = 16;
     context.lineCap = 'round';
     context.lineJoin = 'round';
     context.strokeStyle = '#ff7a2b';
-  }, [targetText]);
+  }, [targetText, lessonDay, isCanvasVisible]);
 
   const toCanvasPoint = useCallback((event, canvas) => {
     const rect = canvas.getBoundingClientRect();
