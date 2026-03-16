@@ -24,6 +24,11 @@ const PROJECT_ROOT = process.cwd();
 const AUDIO_OUTPUT_DIR = path.resolve(PROJECT_ROOT, 'client', 'public', 'audio');
 const MANIFEST_PATH = path.resolve(AUDIO_OUTPUT_DIR, 'manifest.json');
 const EXTRA_TEXTS = ['다시 써보세요'];
+const TTS_INPUT_OVERRIDES = {
+  'ㅡ': '모음 으. 으.',
+  'ㅣ': '모음 이. 이.',
+  오: '오'
+};
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -158,8 +163,9 @@ const main = async () => {
       continue;
     }
 
+    const inputText = TTS_INPUT_OVERRIDES[text] ?? text;
     console.log(`Generating: ${text}`);
-    const audioBuffer = await synthesizeSpeech(text);
+    const audioBuffer = await synthesizeSpeech(inputText);
     await fs.writeFile(filePath, audioBuffer);
   }
 
