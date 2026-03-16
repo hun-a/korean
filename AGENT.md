@@ -261,3 +261,24 @@
   1. `BASE_URL`/상대경로 처리
   2. `lessons/*.json` 및 `audio/manifest.json` 존재 여부
   3. manifest의 `availableDays`와 UI 회차 비활성화 상태 일치 여부
+
+### 8) 1단계 입모양 자료 정책 (중요)
+- 1단계의 입모양 자료는 **애니메이션이 아니라 정적 사진**으로 제공한다.
+- 입모양은 벡터 도형/SVG로 합성하지 않고, 실사 스타일 이미지를 사용한다.
+- 이미지 경로:
+  - `client/public/mouth-photos/a.jpg`
+  - `client/public/mouth-photos/eo.jpg`
+  - `client/public/mouth-photos/o.jpg`
+  - `client/public/mouth-photos/u.jpg`
+  - `client/public/mouth-photos/eu.jpg`
+  - `client/public/mouth-photos/i.jpg`
+- 1단계 컴포넌트:
+  - `client/src/components/MouthShapeAnimator.jsx`
+  - 글자 선택 시 해당 정적 사진을 크게 보여주고, `소리 듣기` 버튼은 기존 TTS mp3 재생 로직을 그대로 사용.
+- UI 문구:
+  - 표시 문구는 `입모양 애니메이션`이 아니라 `발음 입모양 사진`을 사용.
+  - 강의 활동 텍스트에 기존 문구가 남아있어도 렌더링 시 `입모양 사진`으로 치환해서 보여준다.
+- 이미지 운영 원칙:
+  - 웹 배포 성능을 위해 원본 PNG 대신 JPG를 사용한다.
+  - 해상도는 1024x1024 유지, 과도한 용량은 압축해 관리한다.
+  - 파일명/경로를 변경하면 `MouthShapeAnimator.jsx` 매핑도 반드시 함께 수정한다.

@@ -1,3 +1,5 @@
+import MouthShapeAnimator from './MouthShapeAnimator';
+
 const stageDescriptions = {
   0: {
     title: '읽기 연습 시간',
@@ -14,6 +16,7 @@ const StageFocusPanel = ({ activeStage, lesson, onPlayText, onGoNext }) => {
   const items = activeStage === 0 ? lesson?.letters ?? [] : lesson?.words ?? [];
   const stageTitle = lesson?.stages?.[activeStage]?.title ?? stageInfo.title;
   const activities = lesson?.stages?.[activeStage]?.activities ?? [];
+  const formatActivityLabel = (activity) => activity.replaceAll('입모양 애니메이션', '입모양 사진');
 
   return (
     <article className="panel stage-focus-panel">
@@ -26,10 +29,12 @@ const StageFocusPanel = ({ activeStage, lesson, onPlayText, onGoNext }) => {
             <button type="button" onClick={() => onPlayText(activity)}>
               듣기
             </button>
-            {activity}
+            {formatActivityLabel(activity)}
           </li>
         ))}
       </ul>
+
+      {activeStage === 0 && <MouthShapeAnimator letters={items} onPlayText={onPlayText} />}
 
       <div className="cards">
         {items.map((item) => (
